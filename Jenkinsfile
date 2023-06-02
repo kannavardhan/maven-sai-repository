@@ -9,13 +9,13 @@ node('built-in')
     script: 'mvn package'
 	}
 }
- stage('SonarQube Analysis') {
-            steps {
-                // Run SonarQube scanner
-                // Make sure you have SonarQube scanner installed and configured
-                // Example:
-                // withSonarQubeEnv('SonarQube Server') {
-                //     sh 'sonar-scanner'
-                // }
-            }
+ stage('SonarQube analysis') {
+//    def scannerHome = tool 'SonarScanner 4.0';
+        steps{
+        withSonarQubeEnv('sonarqube-9.2.4') { 
+        // If you have configured more than one global server connection, you can specify its name
+//      sh "${scannerHome}/bin/sonar-scanner"
+        sh "mvn sonar:sonar"
+    }
+        }
         }
