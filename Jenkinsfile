@@ -2,7 +2,10 @@ node('built-in')
 {
     stage('Continuous Download') 
 	{
-    git 'https://github.com/sai-313/hello-world-war.git'
+    git 'https://github.com/sunildevops77/maven.git'
 	}
-  
+    stage('Continuous Build') 
+	{
+    script: 'mvn package'
+	}
 }
