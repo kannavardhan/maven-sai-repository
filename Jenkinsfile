@@ -9,3 +9,13 @@ node('built-in')
     script: 'mvn package'
 	}
 }
+ stage('SonarQube Analysis') {
+            steps {
+                // Run SonarQube scanner
+                // Make sure you have SonarQube scanner installed and configured
+                // Example:
+                // withSonarQubeEnv('SonarQube Server') {
+                //     sh 'sonar-scanner'
+                // }
+            }
+        }
